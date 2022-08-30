@@ -2,13 +2,9 @@ import { Navbar, Button, Text } from "@nextui-org/react";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import Logo from "../assets/logo.png";
+import { Links } from "../constants/Links";
 
 export default function NavigationBar({ active}) {
-
-    const links = [
-      {name: "Home", path: "/"},
-      {name: "Privacy Policy", path: "/privacypolicy"},
-    ]
 
     return (
     <>
@@ -22,11 +18,16 @@ export default function NavigationBar({ active}) {
       </Navbar.Brand>
 
       <Navbar.Content hideIn="xs" variant="highlight">
-        {links.map(link => (
+        {Links.map(link => {
+          // Fix link for github pages
+          if (typeof window !== "undefined" && window.location.pathname.includes("website")) {
+            link.path = "/website" + link.path;
+          } 
+          return (
           <Navbar.Link key={link.name} isActive={link.name === active} href={link.path}>
              {link.name}
           </Navbar.Link>
-        ))}
+        )})}
       </Navbar.Content>
 
       <Navbar.Content>

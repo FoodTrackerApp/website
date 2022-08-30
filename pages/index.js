@@ -1,16 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { Container, Card, Tooltip, Button, Grid, Spacer, Text, Navbar, Col, Row } from "@nextui-org/react";
-import Link from 'next/link'
-import Footer from '../components/Footer';
-import { FaGithub } from 'react-icons/fa';
-import NavigationBar from '../components/NavigationBar';
+import { Container, Card, Button, Text, Col, Row } from "@nextui-org/react";
 
-// images
-import Screenshot from "../assets/screenshot.jpg"
-import Logo from "../assets/logo.png"
-import Mockup from "../assets/mockup.jpg"
+import NavigationBar from '../components/NavigationBar';
 
 export default function Home() {
   return (
@@ -101,7 +93,6 @@ export default function Home() {
 
       </main>
 
-      <Footer />
     </Container>
     </>
   )

@@ -1,10 +1,7 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Link from 'next/link';
-import { Container, Card, Tooltip, Button, Grid, Spacer, Text, Collapse } from "@nextui-org/react";
+import { Container, Text, Collapse } from "@nextui-org/react";
 
-import Footer from '../components/Footer';
 import NavigationBar from '../components/NavigationBar';
 
 export default function Home() {
@@ -45,8 +42,6 @@ export default function Home() {
           
         </div>
       </main>
-
-      <Footer />
     </Container>
     </>
   )
