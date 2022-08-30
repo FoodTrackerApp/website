@@ -2,10 +2,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link';
-import { Container, Card, Tooltip, Button, Grid, Spacer, Text} from "@nextui-org/react";
+import { Container, Card, Tooltip, Button, Grid, Spacer, Text, Collapse } from "@nextui-org/react";
+
+import Footer from '../components/Footer';
+import NavigationBar from '../components/NavigationBar';
 
 export default function Home() {
   return (
+    <>
+    <NavigationBar active="Privacy Policy" />
     <Container>
       <Head>
         <title>FoodTrackerApp Privacy Policy</title>
@@ -13,56 +18,36 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <Text h1>
-          Privacy Policy
-        </Text>
+      <main className={styles.main} style={{ justifyContent: "flex-start", alignItems: "flex-start" }}>
+        <Text h1>Privacy Policy</Text>
 
-        <Link href="/"><a><Button>Back</Button></a></Link>
-
+        <Collapse.Group accordion={false}>
+          <Collapse title="What is gathered?" expanded >
+            <Text p b>Nothing.</Text>
+            <Text p>No. Seriously. I don&apos; gather any information at all from the app.</Text>
+            <Text p blockquote>There are no cookies, no tracker or ads or anything else of that sort.</Text>
+          </Collapse>
+          <Collapse title="Why do you need camera access?" expanded>
+            <Text p b>The camera is used to scan barcodes on products.</Text>
+            <Text p>However, you don&apos;t need to give the App camera access for it to work.</Text>
+            <Text p blockquote>Only the scanning feature will not be available without camera access.</Text>
+          </Collapse>
+          <Collapse title="Can I use the App without a camera?" expanded>
+            <Text p b>Yes.</Text>
+            <Text p>You don&apos;t need a camera for it to work.</Text>
+            <Text p blockquote>Only the scanning feature will not be available without camera access.</Text>
+          </Collapse>
+        </Collapse.Group>
+       
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <Footer />
     </Container>
+    </>
   )
 }
