@@ -2,7 +2,7 @@ import { Navbar, Button, Text } from "@nextui-org/react";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import Logo from "../assets/logo.png";
-import { Links } from "../constants/Links";
+import { Routes } from "../constants/Links";
 
 export default function NavigationBar({ active}) {
 
@@ -18,14 +18,14 @@ export default function NavigationBar({ active}) {
       </Navbar.Brand>
 
       <Navbar.Content hideIn="xs" variant="highlight">
-        {Links.map(link => {
-          // Fix link for github pages
+        {Routes.map(route => {
+          // Fix route for github pages
           if (typeof window !== "undefined" && window.location.pathname.includes("website")) {
-            link.path = "/website" + link.path;
+            route.path = "/website" + route.path;
           } 
           return (
-          <Navbar.Link key={link.name} isActive={link.name === active} href={link.path}>
-             {link.name}
+          <Navbar.Link key={route.name} isActive={route.name === active} href={route.path}>
+             {route.name}
           </Navbar.Link>
         )})}
       </Navbar.Content>
