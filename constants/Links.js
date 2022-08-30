@@ -1,6 +1,6 @@
 const routes = [
-    {name: "Home", path: "/website"},
-    {name: "Privacy Policy", path: "/website/privacypolicy"},
+    {name: "Home", path: "/"},
+    {name: "Privacy Policy", path: "/privacypolicy"},
   ]
 
 const _routes = routes;
